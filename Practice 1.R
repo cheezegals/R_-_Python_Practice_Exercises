@@ -98,36 +98,51 @@ while (n >1 ) {
 }
 answer
 
+
 #2.palindrome is a sequence of characters which reads the same forward or backward. For example, the word “radar”. Write an R program that takes a string and checks if it is a palindrome. Do not make any copy of the sequence of characters. Do not use any R’s built-in function such as rev(), all(), or any(). (Hint: Use strsplit(s, "")[[1]] to split a string into a vector of characters.)
 # compare character one by one
 s <- "radar"
-k = strsplit(s, "")[[1]]
+k = strsplit(s, "")[[1]] ; k
 n = length(k) ; n
-answer = T
-n%/%2
-
-for ( i in 1:2) {
-  print(k[i]) ; print(k[n])
-  n-1
+#create reverse string
+m = k[n:1] ; m
+#init
+answer = TRUE
+#loop original string
+for (i in 1:n) {
+  #loop reverse string only the one oberserve with original
+  for (j in i:i) {
+    #compare
+    if (k[i] != m[j]){
+      answer = FALSE
+      break
+  }
+  }
 }
+answer
+# 3. A prime number is a natural number greater than 1 that is not disivible 
+# by other numbers except for 1 and itself. Write an R program that takes 
+# a natural number n and checks if it is a prime number. 
+# (Hint: Check if n is divisible by any of 2,…,n−1. Actually, is it necessary to check all of them?)
 
-for ( i in 1:3) {
-  if (k[i] == k[n]){
-    print(k[i]) ; print(k[n])
-    n-1
-  } 
-}
+n= 1249
+#init
+answer = TRUE
 
+#write for loop
+for (i in 2:(n-1)) {
+  if (n == 2){
+    answer = TRUE
+    break
+  } else if (n%% i ==0) {
+      answer = FALSE
+  }
+  }
 answer
 
-
-
-
-
-
-
-
-
+# 4.Write an R program that takes two (compatible) matrices A and B 
+# and performs matrix multiplication. Do not use any 
+# R’s built-in function such as sum() or %*%. Recall that
 
 
 
